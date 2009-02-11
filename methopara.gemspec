@@ -2,16 +2,16 @@
 
 Gem::Specification.new do |s|
   s.name = %q{methopara}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Koichi Sasada", "Genki Takiuchi"]
-  s.date = %q{2009-02-10}
+  s.date = %q{2009-02-11}
   s.description = %q{Method#parameters for ruby-1.9.1}
   s.email = %q{genki@s21g.com}
   s.extensions = ["ext/extconf.rb"]
   s.extra_rdoc_files = ["README", "ChangeLog"]
-  s.files = ["README", "ChangeLog", "Rakefile", "lib/methopara.rb", "ext/extconf.rb", "ext/Makefile", "ext/methopara.bundle", "ext/methopara.c", "ext/methopara.o"]
+  s.files = ["README", "ChangeLog", "Rakefile", "lib/methopara.rb", "ext/extconf.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://methopara.rubyforge.org}
   s.rdoc_options = ["--title", "methopara documentation", "--charset", "utf-8", "--opname", "index.html", "--line-numbers", "--main", "README", "--inline-source", "--exclude", "^(examples|extras)/"]

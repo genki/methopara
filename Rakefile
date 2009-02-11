@@ -18,7 +18,7 @@ RUBYFORGE_PROJECT = "methopara"
 HOMEPATH          = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 BIN_FILES         = %w( )
 
-VERS              = "0.1.1"
+VERS              = "0.1.2"
 REV = File.read(".svn/entries")[/committed-rev="(d+)"/, 1] rescue nil
 CLEAN.include ['**/.*.sw?', '*.gem', '.config']
 RDOC_OPTS = [
@@ -62,7 +62,7 @@ spec = Gem::Specification.new do |s|
 	s.required_ruby_version = '= 1.9.1'
 
 	s.files = %w(README ChangeLog Rakefile) +
-		Dir.glob("{bin,doc,test,lib,ext,templates,generator,extras,website,script}/**/*") + 
+		Dir.glob("{bin,doc,test,lib,templates,generator,extras,website,script}/**/*") + 
 		Dir.glob("*.{h,c,rb}") +
 		Dir.glob("examples/**/*.rb") +
 		Dir.glob("tools/*.rb") +
