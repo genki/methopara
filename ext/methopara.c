@@ -494,4 +494,5 @@ void
 Init_methopara(void)
 {
     rb_define_method(rb_cMethod, "parameters", rb_method_parameters, 0);
+    rb_define_method(rb_cUnboundMethod, "parameters", rb_method_parameters, 0);
 }
