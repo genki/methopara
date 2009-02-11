@@ -13,25 +13,25 @@ typedef struct RNode {
     unsigned long flags;
     char *nd_file;
     union {
-	struct RNode *node;
-	ID id;
-	VALUE value;
-	VALUE (*cfunc)(ANYARGS);
-	ID *tbl;
+	      struct RNode *node;
+	      ID id;
+	      VALUE value;
+	      VALUE (*cfunc)(ANYARGS);
+	      ID *tbl;
     } u1;
     union {
-	struct RNode *node;
-	ID id;
-	long argc;
-	VALUE value;
+        struct RNode *node;
+        ID id;
+        long argc;
+        VALUE value;
     } u2;
     union {
-	struct RNode *node;
-	ID id;
-	long state;
-	struct global_entry *entry;
-	long cnt;
-	VALUE value;
+        struct RNode *node;
+        ID id;
+        long state;
+        struct global_entry *entry;
+        long cnt;
+        VALUE value;
     } u3;
 } NODE;
 
@@ -385,50 +385,52 @@ rb_iseq_parameters(const rb_iseq_t *iseq, int is_proc)
     CONST_ID(req, "req");
     CONST_ID(opt, "opt");
     if (is_proc) {
-	for (i = 0; i < iseq->argc; i++) {
-	    PARAM_TYPE(opt);
-	    rb_ary_push(a, rb_id2name(PARAM_ID(i)) ? ID2SYM(PARAM_ID(i)) : Qnil);
-	    rb_ary_push(a, Qnil);
-	    rb_ary_push(args, a);
-	}
+        for (i = 0; i < iseq->argc; i++) {
+            PARAM_TYPE(opt);
+            rb_ary_push(a, rb_id2name(PARAM_ID(i)) ?
+                ID2SYM(PARAM_ID(i)) : Qnil);
+            rb_ary_push(a, Qnil);
+            rb_ary_push(args, a);
+        }
     }
     else {
-	for (i = 0; i < iseq->argc; i++) {
-	    rb_ary_push(args, PARAM(i, req));
-	}
+        for (i = 0; i < iseq->argc; i++) {
+            rb_ary_push(args, PARAM(i, req));
+        }
     }
     r = iseq->arg_rest != -1 ? iseq->arg_rest :
-	iseq->arg_post_len > 0 ? iseq->arg_post_start :
-	iseq->arg_block != -1 ? iseq->arg_block :
-	iseq->arg_size;
+        iseq->arg_post_len > 0 ? iseq->arg_post_start :
+        iseq->arg_block != -1 ? iseq->arg_block :
+        iseq->arg_size;
     for (s = i; i < r; i++) {
-	PARAM_TYPE(opt);
-	if (rb_id2name(PARAM_ID(i))) {
-	    rb_ary_push(a, ID2SYM(PARAM_ID(i)));
-	}
-	rb_ary_push(args, a);
+        PARAM_TYPE(opt);
+        if (rb_id2name(PARAM_ID(i))) {
+            rb_ary_push(a, ID2SYM(PARAM_ID(i)));
+        }
+        rb_ary_push(args, a);
     }
     if (iseq->arg_rest != -1) {
-	CONST_ID(rest, "rest");
-	rb_ary_push(args, PARAM(iseq->arg_rest, rest));
+        CONST_ID(rest, "rest");
+        rb_ary_push(args, PARAM(iseq->arg_rest, rest));
     }
     r = iseq->arg_post_start + iseq->arg_post_len;
     if (is_proc) {
-	for (i = iseq->arg_post_start; i < r; i++) {
-	    PARAM_TYPE(opt);
-	    rb_ary_push(a, rb_id2name(PARAM_ID(i)) ? ID2SYM(PARAM_ID(i)) : Qnil);
-	    rb_ary_push(a, Qnil);
-	    rb_ary_push(args, a);
-	}
+        for (i = iseq->arg_post_start; i < r; i++) {
+            PARAM_TYPE(opt);
+            rb_ary_push(a, rb_id2name(PARAM_ID(i)) ?
+                ID2SYM(PARAM_ID(i)) : Qnil);
+            rb_ary_push(a, Qnil);
+            rb_ary_push(args, a);
+        }
     }
     else {
-	for (i = iseq->arg_post_start; i < r; i++) {
-	    rb_ary_push(args, PARAM(i, req));
-	}
+        for (i = iseq->arg_post_start; i < r; i++) {
+            rb_ary_push(args, PARAM(i, req));
+        }
     }
     if (iseq->arg_block != -1) {
-	CONST_ID(block, "block");
-	rb_ary_push(args, PARAM(iseq->arg_block, block));
+        CONST_ID(block, "block");
+        rb_ary_push(args, PARAM(iseq->arg_block, block));
     }
     return args;
 }
@@ -443,13 +445,13 @@ get_method_iseq(VALUE method)
     Data_Get_Struct(method, struct METHOD, data);
     body = data->body;
     switch (nd_type(body)) {
-      case NODE_BMETHOD:
-	rb_notimplement();
-      case RUBY_VM_METHOD_NODE:
-	GetISeqPtr((VALUE)body->nd_body, iseq);
-	if (RUBY_VM_NORMAL_ISEQ_P(iseq)) break;
-      default:
-	return 0;
+    case NODE_BMETHOD:
+        rb_notimplement();
+    case RUBY_VM_METHOD_NODE:
+        GetISeqPtr((VALUE)body->nd_body, iseq);
+        if (RUBY_VM_NORMAL_ISEQ_P(iseq)) break;
+    default:
+        return 0;
     }
     return iseq;
 }
@@ -464,11 +466,11 @@ unnamed_parameters(int arity)
     a = rb_ary_new3(1, ID2SYM(req));
     OBJ_FREEZE(a);
     for (; n; --n) {
-	rb_ary_push(param, a);
+	      rb_ary_push(param, a);
     }
     if (arity < 0) {
-	CONST_ID(rest, "rest");
-	rb_ary_store(param, ~arity, rb_ary_new3(1, ID2SYM(rest)));
+	      CONST_ID(rest, "rest");
+	      rb_ary_store(param, ~arity, rb_ary_new3(1, ID2SYM(rest)));
     }
     return param;
 }
@@ -485,7 +487,8 @@ rb_method_parameters(VALUE method)
 {
     rb_iseq_t *iseq = get_method_iseq(method);
     if (!iseq) {
-	return unnamed_parameters(FIX2INT(rb_funcall(method, rb_intern("arity"), 0)));
+        return unnamed_parameters(
+            FIX2INT(rb_funcall(method, rb_intern("arity"), 0)));
     }
     return rb_iseq_parameters(iseq, 0);
 }
