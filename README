@@ -1,0 +1,17 @@
+methopara is stands for METHOd PARAmeters.
+
+INSTALL:
+  
+  sudo gem install methopara --source http://merbi.st
+
+REQUIREMENT:
+
+  Ruby-1.9.1 only.
+
+USAGE:
+
+  >> require "rubygems"
+  >> require "methopara"
+  >> def foo(a,b=nil,&c) end
+  >> method(:foo).parameters
+  => [[:req, :a], [:opt, :b], [:block, :c]]
