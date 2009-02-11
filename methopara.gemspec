@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = %q{genki@s21g.com}
   s.extensions = ["ext/extconf.rb"]
   s.extra_rdoc_files = ["README", "ChangeLog"]
-  s.files = ["README", "ChangeLog", "Rakefile", "lib/methopara.rb", "ext/extconf.rb"]
+  s.files = ["README", "ChangeLog", "Rakefile", "lib/methopara.rb", "ext/methopara.c", "ext/extconf.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://methopara.rubyforge.org}
   s.rdoc_options = ["--title", "methopara documentation", "--charset", "utf-8", "--opname", "index.html", "--line-numbers", "--main", "README", "--inline-source", "--exclude", "^(examples|extras)/"]
