@@ -18,7 +18,7 @@ RUBYFORGE_PROJECT = "methopara"
 HOMEPATH          = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 BIN_FILES         = %w( )
 
-VERS              = "0.1.2"
+VERS              = "0.2.0"
 REV = File.read(".svn/entries")[/committed-rev="(d+)"/, 1] rescue nil
 CLEAN.include ['**/.*.sw?', '*.gem', '.config']
 RDOC_OPTS = [
