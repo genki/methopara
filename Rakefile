@@ -18,7 +18,7 @@ RUBYFORGE_PROJECT = "methopara"
 HOMEPATH          = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 BIN_FILES         = %w( )
 
-VERS              = "0.3.0"
+VERS              = "0.3.2"
 REV = File.read(".svn/entries")[/committed-rev="(d+)"/, 1] rescue nil
 CLEAN.include ['**/.*.sw?', '*.gem', '.config']
 RDOC_OPTS = [
@@ -139,5 +139,7 @@ end
 
 desc 'Update gem spec'
 task :gemspec do
-  open("#{NAME}.gemspec", 'w').write spec.to_ruby
+  open("#{NAME}.gemspec", 'w') do |file|
+    file.write spec.to_ruby
+  end
 end
