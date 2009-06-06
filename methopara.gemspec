@@ -12,12 +12,13 @@ Gem::Specification.new do |s|
   s.extensions = ["ext/extconf.rb"]
   s.extra_rdoc_files = ["README", "ChangeLog"]
   s.files = ["README", "ChangeLog", "Rakefile", "lib/methopara.rb", "ext/methopara.c", "ext/extconf.rb"]
-  s.homepage = %q{http://methopara.rubyforge.org}
+  s.has_rdoc = true
+  s.homepage = %q{http://asakusarb.rubyforge.org}
   s.rdoc_options = ["--title", "methopara documentation", "--charset", "utf-8", "--opname", "index.html", "--line-numbers", "--main", "README", "--inline-source", "--exclude", "^(examples|extras)/"]
   s.require_paths = ["lib"]
   s.required_ruby_version = Gem::Requirement.new("~> 1.9.1")
-  s.rubyforge_project = %q{methopara}
-  s.rubygems_version = %q{1.3.4}
+  s.rubyforge_project = %q{asakusarb}
+  s.rubygems_version = %q{1.3.2}
   s.summary = %q{Method#parameters for ruby-1.9.1}
 
   if s.respond_to? :specification_version then
