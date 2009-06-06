@@ -14,11 +14,11 @@ NAME              = "methopara"
 AUTHORS           = ["Koichi Sasada", "Genki Takiuchi"]
 EMAIL             = "genki@s21g.com"
 DESCRIPTION       = "Method#parameters for ruby-1.9.1"
-RUBYFORGE_PROJECT = "methopara"
+RUBYFORGE_PROJECT = "asakusarb"
 HOMEPATH          = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 BIN_FILES         = %w( )
 
-VERS              = "0.3.0"
+VERS              = "0.3.1"
 REV = File.read(".svn/entries")[/committed-rev="(d+)"/, 1] rescue nil
 CLEAN.include ['**/.*.sw?', '*.gem', '.config']
 RDOC_OPTS = [
@@ -59,7 +59,7 @@ spec = Gem::Specification.new do |s|
 	s.test_files        = Dir["test/*_test.rb"]
 
 	#s.add_dependency('activesupport', '>=1.3.1')
-	s.required_ruby_version = '= 1.9.1'
+	s.required_ruby_version = '~> 1.9.1'
 
 	s.files = %w(README ChangeLog Rakefile) +
 		Dir.glob("{bin,doc,test,lib,templates,generator,extras,website,script}/**/*") + 
