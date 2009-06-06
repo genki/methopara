@@ -14,7 +14,7 @@ NAME              = "methopara"
 AUTHORS           = ["Koichi Sasada", "Genki Takiuchi"]
 EMAIL             = "genki@s21g.com"
 DESCRIPTION       = "Method#parameters for ruby-1.9.1"
-RUBYFORGE_PROJECT = "methopara"
+RUBYFORGE_PROJECT = "asakusarb"
 HOMEPATH          = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 BIN_FILES         = %w( )
 
